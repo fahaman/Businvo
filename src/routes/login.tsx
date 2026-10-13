@@ -4,9 +4,10 @@ import { Sparkles, ArrowRight, AlertCircle } from "lucide-react";
 import { toast } from "sonner";
 import { authStore } from "@/lib/auth-store";
 import { apiConfigured } from "@/lib/api/client";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export const Route = createFileRoute("/login")({
-  head: () => ({ meta: [{ title: "Sign in — Nexora AI" }] }),
+  head: () => ({ meta: [{ title: "Sign in — Businvo" }] }),
   component: Login,
 });
 
@@ -35,7 +36,8 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen grid md:grid-cols-2 bg-background">
+    <div className="relative min-h-screen grid md:grid-cols-2 bg-background">
+      <ThemeToggle className="absolute right-5 top-5 z-20" />
       <div className="relative hidden md:block overflow-hidden">
         <div className="absolute inset-0 bg-gradient-hero" />
         <div className="absolute inset-0 grid-bg opacity-30" />
@@ -45,7 +47,7 @@ function Login() {
               <Sparkles className="w-4 h-4 text-white" />
             </div>
             <span className="font-display font-semibold">
-              Nexora<span className="text-gradient">AI</span>
+              Businvo
             </span>
           </Link>
           <div className="mt-auto">
@@ -62,17 +64,17 @@ function Login() {
       <div className="flex items-center justify-center p-6">
         <form
           onSubmit={submit}
-          className="w-full max-w-sm rounded-2xl border border-border bg-card p-8 shadow-card"
+          className="w-full max-w-sm rounded-3xl glass p-8 shadow-card"
         >
           <h1 className="font-display text-2xl font-semibold tracking-tight">Welcome back</h1>
-          <p className="text-sm text-muted-foreground mt-1">Sign in to your Nexora workspace.</p>
+          <p className="text-sm text-muted-foreground mt-1">Sign in to your Businvo workspace.</p>
 
           {!apiConfigured() && (
             <div className="mt-4 p-3 rounded-lg border border-warning/40 bg-warning/10 text-xs text-warning flex gap-2">
               <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
               <span>
-                Backend not configured. Set <code className="font-mono">VITE_API_URL</code>. Demo
-                mode allows any credentials.
+                Authentication is unavailable until the backend is configured. Set{" "}
+                <code className="font-mono">VITE_API_URL</code> to continue.
               </span>
             </div>
           )}

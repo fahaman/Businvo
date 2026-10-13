@@ -4,7 +4,7 @@ import { authStore, useAuth } from "@/lib/auth-store";
 import { LogOut } from "lucide-react";
 
 export const Route = createFileRoute("/app/settings")({
-  head: () => ({ meta: [{ title: "Settings — Nexora AI" }] }),
+  head: () => ({ meta: [{ title: "Settings — Businvo" }] }),
   component: Settings,
 });
 
@@ -30,7 +30,7 @@ function Settings() {
         </Panel>
 
         <Panel title="Workspace">
-          <Field label="Workspace name" defaultValue="Nexora HQ" />
+          <Field label="Workspace name" defaultValue="Businvo" />
           <div className="mt-4">
             <div className="text-xs text-muted-foreground mb-2">Theme</div>
             <div className="flex gap-2">

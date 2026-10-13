@@ -53,19 +53,19 @@
   --background: oklch(0.98 0.005 260);
   --foreground: oklch(0.18 0.03 265);
 
-  --card: oklch(1 0 0);
+  --card: oklch(1 0 0 / 0.62);
   --card-foreground: oklch(0.18 0.03 265);
 
-  --popover: oklch(1 0 0);
+  --popover: oklch(1 0 0 / 0.78);
   --popover-foreground: oklch(0.18 0.03 265);
 
   --primary: oklch(0.55 0.22 280);
   --primary-foreground: oklch(0.99 0.005 260);
 
-  --secondary: oklch(0.96 0.01 260);
+  --secondary: oklch(0.96 0.01 260 / 0.58);
   --secondary-foreground: oklch(0.22 0.04 265);
 
-  --muted: oklch(0.96 0.008 260);
+  --muted: oklch(0.96 0.008 260 / 0.5);
   --muted-foreground: oklch(0.5 0.02 260);
 
   --accent: oklch(0.72 0.18 220);
@@ -87,7 +87,7 @@
   --violet: oklch(0.6 0.25 295);
   --cyan: oklch(0.78 0.16 210);
 
-  --sidebar: oklch(1 0 0);
+  --sidebar: oklch(0.98 0.01 260 / 0.68);
   --sidebar-foreground: oklch(0.18 0.03 265);
   --sidebar-border: oklch(0.92 0.01 260);
   --sidebar-accent: oklch(0.96 0.01 260);
@@ -109,22 +109,22 @@
 }
 
 .dark {
-  --background: oklch(0.14 0.025 265);
+  --background: oklch(0.105 0.035 265);
   --foreground: oklch(0.96 0.01 260);
 
-  --card: oklch(0.19 0.03 265);
+  --card: oklch(0.2 0.045 265 / 0.58);
   --card-foreground: oklch(0.96 0.01 260);
 
-  --popover: oklch(0.19 0.03 265);
+  --popover: oklch(0.2 0.045 265 / 0.82);
   --popover-foreground: oklch(0.96 0.01 260);
 
   --primary: oklch(0.7 0.2 280);
   --primary-foreground: oklch(0.12 0.02 260);
 
-  --secondary: oklch(0.24 0.03 265);
+  --secondary: oklch(0.24 0.03 265 / 0.56);
   --secondary-foreground: oklch(0.96 0.01 260);
 
-  --muted: oklch(0.22 0.03 265);
+  --muted: oklch(0.22 0.03 265 / 0.48);
   --muted-foreground: oklch(0.7 0.02 260);
 
   --accent: oklch(0.75 0.18 210);
@@ -143,7 +143,7 @@
   --input: oklch(0.26 0.03 265);
   --ring: oklch(0.7 0.2 280);
 
-  --sidebar: oklch(0.12 0.03 265);
+  --sidebar: oklch(0.12 0.04 265 / 0.72);
   --sidebar-foreground: oklch(0.92 0.01 260);
   --sidebar-border: oklch(0.22 0.03 265);
   --sidebar-accent: oklch(0.24 0.06 280);
@@ -163,7 +163,13 @@
     font-family: var(--font-sans);
   }
   body {
+    min-height: 100vh;
     background-color: var(--color-background);
+    background-image:
+      radial-gradient(circle at 8% 8%, color-mix(in oklab, var(--violet) 18%, transparent), transparent 28%),
+      radial-gradient(circle at 92% 12%, color-mix(in oklab, var(--cyan) 15%, transparent), transparent 25%),
+      radial-gradient(circle at 55% 100%, color-mix(in oklab, var(--primary) 12%, transparent), transparent 32%);
+    background-attachment: fixed;
     color: var(--color-foreground);
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
@@ -173,6 +179,24 @@
   h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
+  }
+  ::selection {
+    background: color-mix(in oklab, var(--primary) 45%, transparent);
+    color: white;
+  }
+  input,
+  select,
+  textarea {
+    background-color: color-mix(in oklab, var(--card) 72%, transparent);
+    border-color: color-mix(in oklab, var(--border) 78%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border-color: color-mix(in oklab, var(--primary) 65%, transparent);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--primary) 18%, transparent);
   }
 }
 
@@ -206,10 +230,61 @@
   }
 
   .glass {
-    background-color: color-mix(in oklab, var(--card) 70%, transparent);
+    background-color: color-mix(in oklab, var(--card) 78%, transparent);
+    backdrop-filter: blur(22px) saturate(135%);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid color-mix(in oklab, white 16%, var(--border));
+    box-shadow: 0 18px 55px -28px oklch(0 0 0 / 0.55), inset 0 1px 0 color-mix(in oklab, white 18%, transparent);
+  }
+  .bg-card,
+  .bg-sidebar,
+  .bg-popover {
+    background-color: color-mix(in oklab, var(--card) 78%, transparent);
+    backdrop-filter: blur(20px) saturate(125%);
+    -webkit-backdrop-filter: blur(20px) saturate(125%);
+  }
+  .bg-background {
+    background-color: color-mix(in oklab, var(--background) 78%, transparent);
+  }
+  .bg-muted,
+  .bg-secondary {
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    border: 1px solid color-mix(in oklab, var(--border) 80%, transparent);
+  }
+  [class*="rounded-xl"][class*="border"],
+  [class*="rounded-2xl"][class*="border"],
+  [class*="rounded-3xl"][class*="border"] {
+    background-color: color-mix(in oklab, var(--card) 62%, transparent);
+    backdrop-filter: blur(18px) saturate(130%);
+    -webkit-backdrop-filter: blur(18px) saturate(130%);
+    border-color: color-mix(in oklab, white 14%, var(--border));
+    box-shadow: 0 18px 50px -32px oklch(0 0 0 / 0.72), inset 0 1px 0 color-mix(in oklab, white 14%, transparent);
+  }
+  table {
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+  thead {
+    background: color-mix(in oklab, var(--card) 48%, transparent);
+    backdrop-filter: blur(12px);
+  }
+  tbody tr {
+    transition: background-color 180ms ease, transform 180ms ease;
+  }
+  tbody tr:hover {
+    background-color: color-mix(in oklab, var(--primary) 8%, transparent);
+  }
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    transition-duration: 180ms;
+  }
+  .border,
+  .border-border,
+  .border-sidebar-border {
+    border-color: color-mix(in oklab, var(--border) 72%, transparent);
   }
   .glass-dark {
     background-color: color-mix(in oklab, oklch(0.15 0.03 265) 60%, transparent);

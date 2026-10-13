@@ -300,11 +300,6 @@ export const appStore = {
     return () => listeners.delete(listener);
   },
 
-  loadDemoData: () => {
-    currentState = DEMO_STATE;
-    saveAndEmit();
-  },
-
   clearAllData: () => {
     currentState = EMPTY_STATE;
     saveAndEmit();

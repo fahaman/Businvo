@@ -34,13 +34,12 @@ import {
   useCalculatedKpis,
   useDynamicAiInsights,
   useAccurateMonthlySeries,
-  appStore,
   fmt,
 } from "@/lib/app-store";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/app/")({
-  head: () => ({ meta: [{ title: "Overview — Nexora AI" }] }),
+  head: () => ({ meta: [{ title: "Overview — Businvo" }] }),
   component: OverviewPage,
 });
 
@@ -75,16 +74,6 @@ function OverviewPage() {
       <PageHeader
         title="Welcome back, Owner 👋"
         subtitle="Here's how your portfolio is performing — across every business you own."
-        action={
-          businesses.length === 0 ? (
-            <button
-              onClick={() => appStore.loadDemoData()}
-              className="inline-flex items-center gap-2 h-10 px-4 rounded-lg bg-gradient-primary text-white shadow-glow text-sm font-medium cursor-pointer"
-            >
-              <Sparkles className="w-4 h-4" /> Load Demo Data
-            </button>
-          ) : undefined
-        }
       />
 
       {businesses.length === 0 && (
@@ -107,12 +96,6 @@ function OverviewPage() {
               >
                 <Plus className="w-4 h-4" /> Add Business
               </Link>
-              <button
-                onClick={() => appStore.loadDemoData()}
-                className="inline-flex items-center gap-2 h-10 px-4 rounded-lg border border-border bg-card text-xs font-medium hover:bg-muted cursor-pointer"
-              >
-                <Sparkles className="w-3.5 h-3.5 text-primary" /> Load Demo Data
-              </button>
             </div>
           </div>
         </div>
@@ -264,7 +247,7 @@ function OverviewPage() {
           className="lg:col-span-2"
           action={
             <span className="inline-flex items-center gap-1 text-xs text-primary font-medium">
-              <Sparkles className="w-3 h-3" /> Nexora Intelligence
+              <Sparkles className="w-3 h-3" /> Businvo Intelligence
             </span>
           }
         >

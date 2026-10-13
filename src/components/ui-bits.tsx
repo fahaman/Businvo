@@ -32,7 +32,7 @@ export function Panel({
   action?: React.ReactNode;
 }) {
   return (
-    <section className={cn("rounded-2xl border border-border bg-card shadow-card p-5", className)}>
+    <section className={cn("rounded-2xl border border-border bg-card shadow-card backdrop-blur-xl p-5", className)}>
       {(title || action) && (
         <div className="flex items-center justify-between mb-4">
           {title && <h3 className="font-display font-semibold tracking-tight">{title}</h3>}

@@ -9,7 +9,7 @@ import { useAuth } from "@/lib/auth-store";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/app/employees")({
-  head: () => ({ meta: [{ title: "Employees — Nexora AI" }] }),
+  head: () => ({ meta: [{ title: "Employees — Businvo" }] }),
   component: EmployeesPage,
 });
 

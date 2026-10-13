@@ -18,5 +18,5 @@ export const env = {
     .split(",")
     .map((s) => s.trim())
     .filter(Boolean),
-  seedOnRegister: (process.env.SEED_ON_REGISTER ?? "true") === "true",
+  seedOnRegister: (process.env.SEED_ON_REGISTER ?? "false") === "true",
 };

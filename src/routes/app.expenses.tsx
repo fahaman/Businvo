@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/app/expenses")({
-  head: () => ({ meta: [{ title: "Expenses — Nexora AI" }] }),
+  head: () => ({ meta: [{ title: "Expenses — Businvo" }] }),
   component: ExpensesPage,
 });
 

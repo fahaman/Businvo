@@ -1,6 +1,6 @@
-# Nexora API
+# Businvo API
 
-Node + Express + Mongoose backend for the Nexora AI frontend.
+Node + Express + Mongoose backend for the Businvo frontend.
 
 ## Stack
 

@@ -172,7 +172,7 @@ export async function seedForUser(ownerId: string) {
     {
       ownerId,
       tone: "primary",
-      title: "Welcome to Nexora AI",
+      title: "Welcome to Businvo",
       body: "Your workspace has been seeded with 4 demo businesses.",
     },
     {

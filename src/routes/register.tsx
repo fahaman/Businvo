@@ -4,9 +4,10 @@ import { Sparkles, ArrowRight, AlertCircle } from "lucide-react";
 import { toast } from "sonner";
 import { authStore } from "@/lib/auth-store";
 import { apiConfigured } from "@/lib/api/client";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export const Route = createFileRoute("/register")({
-  head: () => ({ meta: [{ title: "Create account — Nexora AI" }] }),
+  head: () => ({ meta: [{ title: "Create account — Businvo" }] }),
   component: Register,
 });
 
@@ -50,11 +51,12 @@ function Register() {
   };
 
   return (
-    <div className="min-h-screen grid md:grid-cols-2 bg-background">
+    <div className="relative min-h-screen grid md:grid-cols-2 bg-background">
+      <ThemeToggle className="absolute right-5 top-5 z-20" />
       <div className="flex items-center justify-center p-6 order-2 md:order-1 my-auto">
         <form
           onSubmit={submit}
-          className="w-full max-w-sm rounded-2xl border border-border bg-card p-8 shadow-card my-4"
+          className="w-full max-w-sm rounded-3xl glass p-8 shadow-card my-4"
         >
           <h1 className="font-display text-2xl font-semibold tracking-tight">
             Create your workspace
@@ -180,7 +182,7 @@ function Register() {
               <Sparkles className="w-4 h-4 text-white" />
             </div>
             <span className="font-display font-semibold">
-              Nexora<span className="text-gradient">AI</span>
+              Businvo
             </span>
           </Link>
           <div className="mt-auto">
@@ -188,7 +190,7 @@ function Register() {
               From spreadsheets to a single command center.
             </h2>
             <p className="mt-3 text-muted-foreground max-w-md">
-              Add restaurants, shops, agencies, clinics — Nexora handles them as one portfolio.
+              Add restaurants, shops, agencies, clinics — Businvo handles them as one portfolio.
             </p>
           </div>
         </div>

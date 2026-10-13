@@ -1,4 +1,4 @@
-# Nexora AI — Multi-business SaaS
+# Businvo — Multi-business SaaS
 
 Two parts:
 

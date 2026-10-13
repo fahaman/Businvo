@@ -13,17 +13,18 @@ import {
   Users,
   Check,
 } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Nexora AI — Run every business from one intelligent dashboard" },
+      { title: "Businvo — Run every business from one intelligent dashboard" },
       {
         name: "description",
         content:
-          "Nexora AI is the AI-powered SaaS that lets owners manage multiple businesses — sales, expenses, inventory, employees and AI insights — from a single command center.",
+          "Businvo is the AI-powered SaaS that lets owners manage multiple businesses — sales, expenses, inventory, employees and AI insights — from a single command center.",
       },
-      { property: "og:title", content: "Nexora AI — Multi-business management, powered by AI" },
+      { property: "og:title", content: "Businvo — Multi-business management, powered by AI" },
       { property: "og:description", content: "One owner. Many businesses. Zero spreadsheets." },
     ],
   }),
@@ -32,16 +33,16 @@ export const Route = createFileRoute("/")({
 
 function Landing() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background/20 text-foreground overflow-hidden">
       {/* Nav */}
-      <header className="sticky top-0 z-30 backdrop-blur-xl bg-background/70 border-b border-border">
+      <header className="sticky top-0 z-30 glass border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-gradient-primary shadow-glow grid place-items-center">
               <Sparkles className="w-4 h-4 text-white" />
             </div>
             <span className="font-display font-semibold text-lg">
-              Nexora<span className="text-gradient">AI</span>
+              Businvo
             </span>
           </Link>
           <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
@@ -59,23 +60,27 @@ function Landing() {
             </a>
           </nav>
           <div className="flex items-center gap-2">
-            <Link to="/login" className="text-sm px-3 py-2 rounded-lg hover:bg-muted">
+            <Link to="/login" className="text-sm px-3 py-2 rounded-xl hover:bg-white/10">
               Sign in
             </Link>
             <Link
               to="/register"
-              className="text-sm px-4 py-2 rounded-lg bg-gradient-primary text-white shadow-glow"
+              className="text-sm px-4 py-2 rounded-xl glass bg-gradient-primary/80 text-white shadow-glow border-white/20"
             >
               Get started
             </Link>
+            <ThemeToggle />
           </div>
         </div>
       </header>
 
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-hero" />
-        <div className="absolute inset-0 grid-bg opacity-30 [mask-image:radial-gradient(60%_60%_at_50%_30%,black,transparent)]" />
+        <div className="absolute inset-0 bg-gradient-hero opacity-90" />
+        <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[42rem] h-[24rem] rounded-full bg-primary/20 blur-3xl" />
+        <div className="absolute top-48 -left-32 w-[28rem] h-[28rem] rounded-full bg-violet/20 blur-3xl" />
+        <div className="absolute top-72 -right-32 w-[28rem] h-[28rem] rounded-full bg-cyan/20 blur-3xl" />
+        <div className="absolute inset-0 grid-bg opacity-15 [mask-image:radial-gradient(60%_60%_at_50%_30%,black,transparent)]" />
         <div className="relative max-w-7xl mx-auto px-6 pt-20 pb-28 text-center">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -129,9 +134,9 @@ function Landing() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25, duration: 0.7 }}
             id="preview"
-            className="mt-20 relative mx-auto max-w-5xl rounded-2xl border border-border bg-card shadow-glow overflow-hidden"
+            className="mt-20 relative mx-auto max-w-5xl rounded-3xl glass shadow-glow overflow-hidden ring-1 ring-white/10"
           >
-            <div className="h-9 flex items-center gap-1.5 px-4 border-b border-border bg-muted/50">
+            <div className="h-10 flex items-center gap-1.5 px-4 border-b border-white/10 bg-white/5">
               <span className="w-2.5 h-2.5 rounded-full bg-destructive/70" />
               <span className="w-2.5 h-2.5 rounded-full bg-warning/70" />
               <span className="w-2.5 h-2.5 rounded-full bg-success/70" />
@@ -146,7 +151,7 @@ function Landing() {
               ].map((c) => (
                 <div
                   key={c.l}
-                  className="relative rounded-xl border border-border p-4 overflow-hidden"
+                  className="relative rounded-2xl glass border-white/10 p-4 overflow-hidden"
                 >
                   <div
                     className={`absolute -top-8 -right-8 w-28 h-28 rounded-full opacity-30 blur-2xl ${c.g}`}
@@ -155,7 +160,7 @@ function Landing() {
                   <div className="mt-1 font-display text-2xl font-semibold">{c.v}</div>
                 </div>
               ))}
-              <div className="md:col-span-4 rounded-xl border border-border h-48 grid-bg" />
+              <div className="md:col-span-4 rounded-2xl glass border-white/10 h-48 grid-bg opacity-80" />
             </div>
           </motion.div>
         </div>
@@ -211,7 +216,7 @@ function Landing() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="rounded-2xl border border-border bg-card p-6 shadow-soft hover:shadow-glow transition-shadow"
+              className="rounded-2xl glass p-6 shadow-soft hover:shadow-glow hover:-translate-y-1 transition-all"
             >
               <div className="w-11 h-11 rounded-xl bg-gradient-primary text-white grid place-items-center shadow-glow">
                 <f.icon className="w-5 h-5" />
@@ -225,11 +230,11 @@ function Landing() {
 
       {/* AI section */}
       <section id="ai" className="relative">
-        <div className="absolute inset-0 bg-gradient-hero opacity-60" />
+        <div className="absolute inset-0 bg-gradient-hero opacity-80" />
         <div className="relative max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass text-xs">
-              <Brain className="w-3.5 h-3.5 text-primary" /> Nexora Intelligence
+              <Brain className="w-3.5 h-3.5 text-primary" /> Businvo Intelligence
             </div>
             <h2 className="mt-4 font-display text-4xl font-semibold tracking-tight">
               AI that actually understands your portfolio.
@@ -278,7 +283,7 @@ function Landing() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className="relative overflow-hidden rounded-2xl border border-border bg-card p-5 shadow-card"
+                className="relative overflow-hidden rounded-2xl glass p-5 shadow-card hover:-translate-y-1 transition-transform"
               >
                 <div
                   className={`absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-30 blur-2xl ${c.tone}`}
@@ -297,12 +302,12 @@ function Landing() {
       {/* Testimonials */}
       <section className="max-w-7xl mx-auto px-6 py-24">
         <h2 className="font-display text-4xl font-semibold tracking-tight max-w-2xl">
-          Owners who replaced 6 dashboards with Nexora.
+          Owners who replaced 6 dashboards with Businvo.
         </h2>
         <div className="mt-10 grid md:grid-cols-3 gap-5">
           {[
             {
-              q: "I run a restaurant, a boutique and a clinic. Nexora is the first tool that treats that as normal.",
+              q: "I run a restaurant, a boutique and a clinic. Businvo is the first tool that treats that as normal.",
               n: "Aarav M.",
               r: "Portfolio Owner",
             },
@@ -317,7 +322,7 @@ function Landing() {
               r: "CEO, Northwind Digital",
             },
           ].map((t) => (
-            <div key={t.n} className="rounded-2xl border border-border bg-card p-6 shadow-soft">
+            <div key={t.n} className="rounded-2xl glass p-6 shadow-soft hover:-translate-y-1 transition-transform">
               <p className="text-sm">"{t.q}"</p>
               <div className="mt-4 flex items-center gap-3">
                 <div className="w-9 h-9 rounded-full bg-gradient-violet" />
@@ -333,7 +338,7 @@ function Landing() {
 
       {/* CTA */}
       <section id="pricing" className="max-w-5xl mx-auto px-6 pb-24">
-        <div className="relative rounded-3xl overflow-hidden border border-border p-10 md:p-14 text-center bg-card">
+        <div className="relative rounded-3xl overflow-hidden glass p-10 md:p-14 text-center ring-1 ring-white/10">
           <div className="absolute inset-0 bg-gradient-hero" />
           <div className="relative">
             <Shield className="w-8 h-8 mx-auto text-primary" />
@@ -353,13 +358,13 @@ function Landing() {
         </div>
       </section>
 
-      <footer className="border-t border-border">
+      <footer className="glass border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
             <div className="w-6 h-6 rounded-md bg-gradient-primary grid place-items-center">
               <Sparkles className="w-3 h-3 text-white" />
             </div>
-            © {new Date().getFullYear()} Nexora AI
+            © {new Date().getFullYear()} Businvo
           </div>
           <div className="flex items-center gap-6">
             <a href="#" className="hover:text-foreground">

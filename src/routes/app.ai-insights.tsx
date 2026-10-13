@@ -7,7 +7,7 @@ import { useAuth } from "@/lib/auth-store";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/app/ai-insights")({
-  head: () => ({ meta: [{ title: "AI Insights — Nexora AI" }] }),
+  head: () => ({ meta: [{ title: "AI Insights — Businvo" }] }),
   component: AIInsightsPage,
 });
 
@@ -37,7 +37,7 @@ function AIInsightsPage() {
   return (
     <>
       <PageHeader
-        title="Nexora Intelligence"
+        title="Businvo Intelligence"
         subtitle="AI-powered predictions, smart suggestions and portfolio health scores."
       />
 

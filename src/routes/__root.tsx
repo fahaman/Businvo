@@ -73,13 +73,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Nexora AI — Multi-business management, powered by AI" },
+      { title: "Businvo — Multi-business management, powered by AI" },
       {
         name: "description",
         content:
           "Run every business you own — sales, expenses, inventory, employees and AI insights — from a single intelligent dashboard.",
       },
-      { property: "og:title", content: "Nexora AI" },
+      { property: "og:title", content: "Businvo" },
       { property: "og:description", content: "One owner. Many businesses. Zero spreadsheets." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

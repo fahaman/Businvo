@@ -1,6 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Plus, MoreHorizontal, TrendingUp, Building2, X, Sparkles, Trash2 } from "lucide-react";
+import { Plus, MoreHorizontal, TrendingUp, Building2, X, Trash2 } from "lucide-react";
 import { PageHeader, Panel } from "@/components/ui-bits";
 import { useAppData, appStore, fmt } from "@/lib/app-store";
 import { authStore } from "@/lib/auth-store";
@@ -9,7 +9,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/app/businesses")({
-  head: () => ({ meta: [{ title: "Businesses — Nexora AI" }] }),
+  head: () => ({ meta: [{ title: "Businesses — Businvo" }] }),
   component: BusinessesPage,
 });
 
@@ -66,14 +66,6 @@ function BusinessesPage() {
         subtitle="Every business you manage from this workspace. Switch into any one to see scoped data."
         action={
           <div className="flex gap-2">
-            {businesses.length === 0 && (
-              <button
-                onClick={() => appStore.loadDemoData()}
-                className="inline-flex items-center gap-2 h-10 px-3 rounded-lg border border-border bg-card text-xs font-medium hover:bg-muted cursor-pointer"
-              >
-                <Sparkles className="w-3.5 h-3.5 text-primary" /> Load Demo Data
-              </button>
-            )}
             <button
               onClick={() => setIsModalOpen(true)}
               className="inline-flex items-center gap-2 h-10 px-4 rounded-lg bg-gradient-primary text-white shadow-glow text-sm font-medium cursor-pointer"
@@ -92,7 +84,7 @@ function BusinessesPage() {
           <h2 className="text-xl font-bold tracking-tight font-display">No businesses added yet</h2>
           <p className="text-sm text-muted-foreground mt-1 max-w-md mx-auto">
             You haven't added any businesses to your portfolio yet. Create your first business below
-            or load sample data to see Nexora AI in action.
+            to start using Businvo.
           </p>
           <div className="mt-6 flex items-center justify-center gap-3">
             <button
@@ -100,12 +92,6 @@ function BusinessesPage() {
               className="inline-flex items-center gap-2 h-11 px-5 rounded-xl bg-gradient-primary text-white font-medium shadow-glow text-sm cursor-pointer"
             >
               <Plus className="w-4 h-4" /> Create your first business
-            </button>
-            <button
-              onClick={() => appStore.loadDemoData()}
-              className="inline-flex items-center gap-2 h-11 px-4 rounded-xl border border-border text-sm font-medium hover:bg-muted cursor-pointer"
-            >
-              <Sparkles className="w-4 h-4 text-primary" /> Load Sample Demo Data
             </button>
           </div>
         </div>
